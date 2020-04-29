@@ -81,20 +81,18 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./src/js/index.js":
-/*!*************************!*\
-  !*** ./src/js/index.js ***!
-  \*************************/
+/******/ ([
+/* 0 */
+/*!**********************!*\
+  !*** multi index.js ***!
+  \**********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("// Global app controller\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'index.js'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\n//# sourceURL=webpack:///multi_index.js?");
 
 /***/ })
-
-/******/ });
+/******/ ]);
