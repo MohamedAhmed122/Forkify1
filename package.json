@@ -1,0 +1,27 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "forkify project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedAhmed122/Forkify1.git"
+  },
+  "author": "Mohamed Desouky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedAhmed122/Forkify1/issues"
+  },
+  "homepage": "https://github.com/MohamedAhmed122/Forkify1#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
