@@ -11,7 +11,7 @@ export default class Search {
             this.result = res.data.recipes;
             //console.log(this.result)
         } catch (error) {
-            alert('something goes wronk with search fetching')
+            alert('something goes wrong with search fetching')
         }
     }
 }

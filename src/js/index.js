@@ -5,6 +5,7 @@ import {
     renderLoader,
     removeLoader
 } from './View/base'
+import Recipe from './models/recipe'
 
 /*
  * Global state for the app
@@ -52,3 +53,32 @@ elements.Button.addEventListener('click', e => {
     SearchView.clearBtn();
     SearchView.renderResults(state.search.result, goToPage)
 })
+
+
+const controlRecipe = async () => {
+    // get the id from the URl
+    const id = window.location.hash.replace('#', '');
+    console.log(id);
+
+    if (id) {
+        //prepare UI for changes
+
+        //create new recipe object
+        state.recipe = new Recipe(id);
+
+        //get recipe from data
+        await state.recipe.getRecipe();
+        state.recipe.parseIndredients();
+
+        //calculate time and serving
+        state.recipe.calcTime();
+        state.recipe.calcServings();
+
+        //RenderRecipe
+        console.log(state.recipe);
+    }
+}
+
+// window.addEventListener('hashchange', controlRecipe)
+// window.addEventListener('load', controlRecipe);
+['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe))
