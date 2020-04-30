@@ -10,8 +10,15 @@
      elements.searchList.innerHTML = '';
  }
  export const clearBtn = () => {
-    elements.Button.innerHTML = '';
-}
+     elements.Button.innerHTML = '';
+ };
+ export const highLighted = id => {
+     const arrayResult = Array.from(document.querySelectorAll('.results__link'));
+     arrayResult.forEach(el => {
+         el.classList.remove('results__link--active');
+     })
+     document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+ };
 
  const renderRecipes = (recipe) => {
      const markup = `
