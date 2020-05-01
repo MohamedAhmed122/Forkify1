@@ -8,10 +8,9 @@
 
  export const clearResults = () => {
      elements.searchList.innerHTML = '';
- }
- export const clearBtn = () => {
      elements.Button.innerHTML = '';
- };
+ }
+
  export const highLighted = id => {
      const arrayResult = Array.from(document.querySelectorAll('.results__link'));
      arrayResult.forEach(el => {
@@ -46,29 +45,32 @@
         </button>`;
 
  const renderButton = (page, numResults, resPerPage) => {
-
      const pages = Math.ceil(numResults / resPerPage);
+
      let button;
      if (page === 1 && pages > 1) {
-         //button go to next 
+         // Only button to go to next page
          button = createButton(page, 'next');
-     } else if (pages > page) {
-         // button go to next and prev
-         button = `${createButton(page, 'prev')}
-                   ${createButton(page, 'next')}`
-     } else if (page === page && pages > 1) {
-         // button go to prev
+     } else if (page < pages) {
+         // Both buttons
+         button = `
+                    ${createButton(page, 'prev')}
+                    ${createButton(page, 'next')}
+                `;
+     } else if (page === pages && pages > 1) {
+         // Only button to go to prev page
          button = createButton(page, 'prev');
      }
-     elements.Button.insertAdjacentHTML('afterbegin', button);
 
- }
+     elements.Button.insertAdjacentHTML('afterbegin', button);
+ };
+
+ //Button
 
  export const renderResults = (recipes, page = 1, rePerPage = 10) => {
 
      const start = (page - 1) * rePerPage;
      const end = page * rePerPage;
-     const numResults = page * rePerPage;
      recipes.slice(start, end).forEach(renderRecipes)
      renderButton(page, recipes.length, rePerPage);
  }
