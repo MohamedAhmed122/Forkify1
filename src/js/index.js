@@ -9,6 +9,7 @@ import {
     removeLoader
 } from "./View/base";
 import Recipe from "./models/recipe";
+import Likes from "./models/Like";
 
 /*
  * Global state for the app
@@ -95,7 +96,26 @@ const controlRecipe = async () => {
     window.addEventListener(e, controlRecipe)
 );
 
+const controlLike = () => {
+    if (!state.likes) state.likes = new Likes();
 
+    const currentID = state.recipe.id;
+    if (!state.likes.isLiked(currentID)) {
+
+        const newLike = state.likes.addLike(currentID,
+            state.recipe.title, state.recipe.publisher,
+            state.recipe.image);
+
+        console.log(state.likes);
+
+    } else {
+
+        state.likes.deleteLike(currentID);
+
+        console.log(state.likes);
+
+    }
+}
 // handle recipe button click
 elements.recipe.addEventListener('click', e => {
 
@@ -111,8 +131,10 @@ elements.recipe.addEventListener('click', e => {
     } else if (e.target.matches('.btn-increse , .btn-increse *')) {
         state.recipe.updateServings('inc');
         RecipeView.updateServingsIngredients(state.recipe);
-    } else if (e.target.matches('.recipe__btn-add', '.recipe__btn-add *')) {
+    } else if (e.target.matches('.recipe__btn-add ,.recipe__btn-add *')) {
         controlList();
+    } else if (e.target.matches('.recipe__love, .recipe__love *')) {
+        controlLike();
     }
 })
 
