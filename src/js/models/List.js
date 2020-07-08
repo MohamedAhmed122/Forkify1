@@ -26,6 +26,4 @@ export default class List {
         this.items.find(el => el.id === id).count = newCount;
     }
 }
-// loop throw all  the elements in the array and select the one 
-// which has the id  == the id which we pass ito the function
 
